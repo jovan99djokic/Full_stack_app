@@ -10,7 +10,7 @@ const ContactList = ({ contacts, updateContact, updateCallback }) => {
             if (response.status === 200) {
                 updateCallback()
             } else {
-                console.error("Failed to delete")
+                console.error("unable to delete")
             }
         } catch (error) {
             alert(error)
