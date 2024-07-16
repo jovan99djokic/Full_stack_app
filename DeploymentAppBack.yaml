@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-back
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app-back
+  template:
+    metadata:
+      labels:
+        app: app-back
+    spec:
+      containers:
+      - name: app-back
+        image: jovan99djokic/app_back:1.9
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1

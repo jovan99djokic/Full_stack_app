@@ -26,6 +26,7 @@ jobs:
     - name: Determine version number
       id: version
       run: echo "::set-output name=version::1.${{ github.run_number }}"
+        echo ${GITHUB_SHA}
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5

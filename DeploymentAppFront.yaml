@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-front
+  template:
+    metadata:
+      labels:
+        app: app-front
+    spec:
+      containers:
+      - name: app-front
+        image: jovan99djokic/app_front:1.9
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
