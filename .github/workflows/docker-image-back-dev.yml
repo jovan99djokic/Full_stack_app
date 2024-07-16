@@ -42,3 +42,14 @@ jobs:
 
     - name: Log out from Docker Hub
       run: docker logout
+
+
+    - name: Implementing Sha inside DeploymentAppBack.yaml
+      run: sed "s/__SHA__/${{ env.sha }}/g" ./DeploymentAppBack.yaml
+
+    - name: Apply Kubernetes deployment
+      uses: actions/kubectl@v1.2.0
+      with:
+        args: apply -f ./DeploymentAppBack.yaml
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
