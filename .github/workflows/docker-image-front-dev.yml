@@ -32,7 +32,7 @@ jobs:
       with:
         context: ./frontend
         push: true
-        tags: jovan99djokic/front_end_dev:${{ env.SHORT_SHA }}
+        tags: jovan99djokic/app_front_dev:${{ env.SHORT_SHA }}
         labels: |
           org.opencontainers.image.revision=${{ env.SHORT_SHA }}
 
