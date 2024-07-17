@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-back
+  name: app-front
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: app-back
+      app: app-front
   template:
     metadata:
       labels:
-        app: app-back
+        app: app-front
     spec:
       containers:
-      - name: app-back
-        image: jovan99djokic/app_back:1.10
+      - name: app-front
+        image: jovan99djokic/app_front_dev:__SHA__
         imagePullPolicy: Always
         ports:
-        - containerPort: 5000
+        - containerPort: 3000
   strategy:
     type: RollingUpdate
     rollingUpdate:

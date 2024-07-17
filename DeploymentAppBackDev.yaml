@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: app-back
-        image: jovan99djokic/app_back:1.10
+        image: jovan99djokic/app_back_dev:__SHA__
         imagePullPolicy: Always
         ports:
         - containerPort: 5000

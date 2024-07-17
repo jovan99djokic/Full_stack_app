@@ -36,5 +36,5 @@ jobs:
         labels: |
           org.opencontainers.image.revision=${{ env.SHORT_SHA }}
 
-    - name: Implementing SHA in DeploymentAppBack.yaml
-      run: sed -i "s/__SHA__/${{ env.SHORT_SHA }}/g" ./DeploymentAppBack.yaml
+    - name: Implementing SHA in DeploymentAppBackDev.yaml
+      run: sed -i "s/__SHA__/${{ env.SHORT_SHA }}/g" ./DeploymentAppBackDev.yaml
