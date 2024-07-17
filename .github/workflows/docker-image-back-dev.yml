@@ -35,5 +35,6 @@ jobs:
           org.opencontainers.image.revision=${{ env.SHORT_SHA }}
 
     - name: Update seeds.txt with SHA
-      run: sed -i "s/__SHA__/${{ env.SHORT_SHA }}/g" ./seeds.txt
+      run: echo "${SHORT_SHA}" > seeds.txt
+
   
