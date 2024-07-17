@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: app-front
-        image: jovan99djokic/app_front_dev:__SHA__
+        image: jovan99djokic/app_front_dev:{{VERSION}}
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

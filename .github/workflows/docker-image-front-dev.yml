@@ -23,22 +23,18 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Echo GITHUB_SHA
-      id: get_sha
-      run: echo "sha=${GITHUB_SHA}" >> $GITHUB_ENV
-
-    - name: Determine version number
-      id: version
-      run: echo "::set-output name=version::1.${{ github.run_number }}"
+    - name: Get short SHA
+      id: vars
+      run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
         context: ./frontend
         push: true
-        tags: jovan99djokic/front_end_dev:${{ env.sha }}
+        tags: jovan99djokic/front_end_dev:${{ env.SHORT_SHA }}
         labels: |
-          org.opencontainers.image.revision=${{ env.sha }}
+          org.opencontainers.image.revision=${{ env.SHORT_SHA }}
 
     - name: Log out from Docker Hub
       run: docker logout

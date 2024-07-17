@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: app-back
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: app-back
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: app-back
-        image: jovan99djokic/app_back_dev:__SHA__
+        image: jovan99djokic/app_back_dev:{{VERSION}}
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
