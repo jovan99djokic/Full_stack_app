@@ -5,9 +5,7 @@ on:
     branches: [ "Development" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -32,9 +30,18 @@ jobs:
       with:
         context: ./backend
         push: true
-        tags: jovan99djokic/app_back:${{ env.SHORT_SHA }}
+        tags: jovan99djokic/app_back_dev:${{ env.SHORT_SHA }}
         labels: |
           org.opencontainers.image.revision=${{ env.SHORT_SHA }}
 
-    - name: Implementing SHA in DeploymentAppBackDev.yaml
+    - name: Implement SHA in DeploymentAppBackDev.yaml
       run: sed -i "s/__SHA__/${{ env.SHORT_SHA }}/g" ./DeploymentAppBackDev.yaml
+
+    - name: Set up Kubeconfig
+      run: |
+        echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+
+    - name: Apply Kubernetes deployment
+      run: kubectl apply -f ./DeploymentAppBackDev.yaml
