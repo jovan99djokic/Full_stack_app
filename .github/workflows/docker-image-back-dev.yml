@@ -34,10 +34,11 @@ jobs:
         labels: |
           org.opencontainers.image.revision=${{ env.SHORT_SHA }}
 
-
-
     - name: Implement SHA in DeploymentAppBackDev.yaml
       run: sed -i "s/__SHA__/${{ env.SHORT_SHA }}/g" ./DeploymentAppBackDev.yaml
+
+    - name: Create .kube directory
+      run: mkdir -p $HOME/.kube
 
     - name: Set up Kubeconfig
       run: echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 --decode > $HOME/.kube/config
@@ -46,6 +47,3 @@ jobs:
 
     - name: Apply Kubernetes deployment
       run: kubectl apply -f ./DeploymentAppBackDev.yaml
-
-
-  
