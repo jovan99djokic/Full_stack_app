@@ -45,5 +45,10 @@ jobs:
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
 
+    - name: Copy Minikube Certificates
+      run: |
+        mkdir -p $HOME/.minikube/profiles/minikube
+        cp /home/teezer/.minikube/* $HOME/.minikube/profiles/minikube/
+
     - name: Apply Kubernetes deployment
       run: kubectl apply -f ./DeploymentAppBackDev.yaml
