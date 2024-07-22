@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: app-front
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: app-front
   ports:
     - protocol: TCP
       port: 5173
       targetPort: 5173
-      nodePort: 30006
+      nodePort: 30003  

@@ -18,6 +18,13 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
+        volumeMounts:
+        - name: backend-storage
+          mountPath: /app/instance
+      volumes:
+      - name: backend-storage
+        persistentVolumeClaim:
+          claimName: backend-pvc
   strategy:
     type: RollingUpdate
     rollingUpdate:

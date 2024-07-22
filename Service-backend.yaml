@@ -3,11 +3,10 @@ kind: Service
 metadata:
   name: app-back
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: app-back
   ports:
     - protocol: TCP
       port: 5000
       targetPort: 5000
-      nodePort: 30005
