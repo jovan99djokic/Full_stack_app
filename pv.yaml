@@ -5,7 +5,7 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 2Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteOnce
   hostPath:  # This is for testing purposes; use actual storage in production

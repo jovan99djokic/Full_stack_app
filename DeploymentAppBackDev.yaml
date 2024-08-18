@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-back
-  namespace: dev-app1  # Ensure this matches your namespace
 spec:
   replicas: 1
   selector:
@@ -15,17 +14,17 @@ spec:
     spec:
       containers:
       - name: app-back
-        image: jovan99djokic/app_back_dev:{{VERSION}}
+        image: jovan99djokic/app_back_dev:{{VERSION}}  # Replace with actual version
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
         volumeMounts:
-        - mountPath: /app/instance  # Path inside the container
-          name: backend-storage
-      volumes:
-      - name: backend-storage
+        - mountPath: "/app/instance"
+          name: backend-pv
+      volumes:  # Add this section to define the volume
+      - name: backend-pv
         persistentVolumeClaim:
-          claimName: backend-pvc
+          claimName: backend-pvc  # Replace with the name of your PVC
   strategy:
     type: RollingUpdate
     rollingUpdate:
