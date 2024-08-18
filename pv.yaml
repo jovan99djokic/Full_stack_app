@@ -3,10 +3,10 @@ kind: PersistentVolume
 metadata:
   name: backend-pv
 spec:
-  storageClassName: app
+  storageClassName: manual
   capacity:
     storage: 2Gi
   accessModes:
     - ReadWriteOnce
   hostPath:  # This is for testing purposes; use actual storage in production
-    path: /app
+    path: /tmp/hostpath-provisioner/dev-app1/backend-pvc

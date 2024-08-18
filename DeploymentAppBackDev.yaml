@@ -20,7 +20,7 @@ spec:
         ports:
         - containerPort: 5000
         volumeMounts:
-        - mountPath: "/app/instance"  # Path inside the container
+        - mountPath: /app/instance  # Path inside the container
           name: backend-storage
       volumes:
       - name: backend-storage

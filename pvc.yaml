@@ -4,7 +4,7 @@ metadata:
   name: backend-pvc
   namespace: dev-app1  # Ensure this matches your namespace
 spec:
-  storageClassName: app  # Use the default storage class for dynamic provisioning
+  storageClassName: manual  # Use the default storage class for dynamic provisioning
   accessModes:
     - ReadWriteOnce
   resources:
