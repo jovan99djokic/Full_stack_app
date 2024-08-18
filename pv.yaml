@@ -9,4 +9,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:  # This is for testing purposes; use actual storage in production
-    path: /tmp/hostpath-provisioner/dev-app1/backend-pvc
+    path: /app  # or /app
