@@ -3,6 +3,9 @@ kind: Service
 metadata:
   name: frontend-service
   namespace: dev-app1
+  annotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/port: '5173'
   labels:
     app: app-front
 spec:

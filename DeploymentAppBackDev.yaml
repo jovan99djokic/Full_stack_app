@@ -14,17 +14,17 @@ spec:
     spec:
       containers:
       - name: app-back
-        image: jovan99djokic/app_back_dev:{{VERSION}}  # Replace with actual version
+        image: jovan99djokic/app_back_dev:{{VERSION}}  
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
         volumeMounts:
         - mountPath: "/app/instance"
           name: backend-pv
-      volumes:  # Add this section to define the volume
+      volumes:  
       - name: backend-pv
         persistentVolumeClaim:
-          claimName: backend-pvc  # Replace with the name of your PVC
+          claimName: backend-pvc  
   strategy:
     type: RollingUpdate
     rollingUpdate:
