@@ -12,7 +12,7 @@ last_names = ["Petrovic", "Markovic", "Ivanovic", "Nikolic", "Stefanovic"]
 domains = ["gmail.com", "yahoo.com", "outlook.com", "example.com"]
 
 # Number of requests to send
-num_requests = 25
+num_requests = 2500
 # Number of concurrent threads
 num_threads = 5
 
