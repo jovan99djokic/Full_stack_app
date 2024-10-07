@@ -6,7 +6,7 @@ Project Overview
 This project showcases:
 
     A React.js frontend for the user interface.
-    A Node.js/Express backend handling API requests and logic.
+    A Python Flask backend handling API requests and logic.
     An SQLite database stored on the backend container using a Persistent Volume.
     Continuous Integration/Continuous Deployment (CI/CD) pipeline using GitHub Actions.
     Monitoring with Prometheus and Grafana for tracking performance and availability.
@@ -15,7 +15,7 @@ This project showcases:
 Tech Stack
 
     Frontend: React.js
-    Backend: Node.js, Express.js
+    Backend: Python Flask
     Database: SQLite (stored on backend)
     Containerization: Docker
     Orchestration: Kubernetes (Minikube or cloud-based cluster)
@@ -41,7 +41,7 @@ To run this project locally or on a Kubernetes cluster, you'll need:
     Kubernetes (Minikube or a cloud provider like GKE, EKS, or AKS)
     kubectl command-line tool
     Helm (for Prometheus and Grafana installation)
-    Node.js and npm (for local development)
+    Python and Flask installed
 
 Setup and Installation
 1. Clone the Repository
