@@ -53,16 +53,12 @@ cd Full_stack_app
 
 Build the backend and frontend Docker images:
 
-bash
-
 docker build -t your-username/backend-app ./backend
 docker build -t your-username/frontend-app ./frontend
 
 3. Deploy to Kubernetes
 
 Ensure you have a running Kubernetes cluster (e.g., Minikube) and apply the necessary Kubernetes configurations:
-
-bash
 
 kubectl apply -f k8s/backend-deployment.yaml
 kubectl apply -f k8s/frontend-deployment.yaml
